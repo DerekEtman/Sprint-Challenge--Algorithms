@@ -37,6 +37,7 @@ First pass solution:
         switch to the upper floors and repeat the process halving until we reach the max floor.
 
         return f
+        And stop wasting eggs, you'll have the cops called on you again.
     
 
 
