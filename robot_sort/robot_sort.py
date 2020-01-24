@@ -93,11 +93,25 @@ class SortingRobot:
         return self._light == "ON"
 
     def sort(self):
-        """
-        Sort the robot's list.
-        """
-        # Fill this out
-        pass
+        print(l)
+        # Problem: sort the list with robot, He can only hold one object at a time
+
+        # Loop through the range of the array
+            #  If robot doesnt have a number
+                # pick up number
+                # Move right or write a helper function to check and move robot.
+            # If compare  == 1
+                # swap item
+
+
+        for n in range(len(l)):
+            if self.compare_item() == None:
+                self.swap_item()
+            if self.comp
+
+        
+
+        
 
 
 if __name__ == "__main__":
