@@ -38,8 +38,5 @@ First pass solution:
 
         return f
     
-Def what_floor(n)
-    Setting floor at 0 for right now
-    f = 0
 
 
