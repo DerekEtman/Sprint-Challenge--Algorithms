@@ -95,100 +95,34 @@ class SortingRobot:
         return self._light == "ON"
 
     def sort(self):
-        # Problem: sort the list with robot, He can only hold one object at a time
-        while self.can_move_right():
-            
-            # Loop through the range of the array
+        # While robot can move right
+       while self.can_move_right():
+        #    pick up first element
+            self.swap_item()
+            #  looping through elements again to check neighboring elements
             while self.can_move_right():
-        # ------- IS NONE
-                #  If compare_item == None
-                if self.compare_item() == None:
-                    # swap item
+                # Check if the neighboring element is > < or ==
+                self.move_right()
+                # if held item is less
+                if self.compare_item() == 1:
+                    # swap
                     self.swap_item()
-                    # Check if robot can move to the right
-                    if self.can_move_right() == True:
-                        # if yes move right
-                        self.move_right()
-                    else:
-                        break
-                        # if no move left
-        # ------- IS LESS            
-                # If item held IS LESS??
-                elif self.compare_item() == -1:
-                    # Check if robot can move to the right
-                    if self.can_move_right() == True:
-                        # if yes 
-                        # move right
-                        self.move_right()
-                    # if False
-                    elif self.can_move_right() == False:
-                        # Move to the left until Robot until robot hits None
-                        
-                        self.move_left()
-                        
-                        # move original index
-                        while self.compare_item() != None:
-                            self.move_left()
-                        else:
-                            # swap items
-                            self.swap_item() 
-                            # move right
-                            self.move_right()
-        # ------- IS MORE
-                # If item held is more
-                elif self.compare_item() == 1:
-                    # swap item
-                    self.swap_item()
-                    # Check if robot can move to the right
-                    if self.can_move_right() == True:
-                        # if yes 
-                        # move right
-                        self.move_right()
 
-                    # if False
-                    elif self.can_move_right() == False:
-                        # Move to the left until Robot until robot hits None     
-                        # move original index
-                        if self.compare_item() != None:
-                            self.move_left()
-                        else:
-                            # swap items
-                            self.swap_item() 
-                            # move right
-                            self.move_right()
-        # ------- IS EQUAL
-                # If item held is equal
-                elif self.compare_item() == 0:
-                    # Check if robot can move to the right
-                    if self.can_move_right() == True:
-                        # if yes 
-                        # move right
+
+            if self.can_move_right() != True:
+                while self.compare_item() != None:
+                    self.move_left() 
+                    if self.compare_item() == None:
+                        self.swap_item()
                         self.move_right()
-                    # if False
-                    elif self.can_move_right() == False:
-                        # Move to the left until Robot until robot hits None
-                        self.move_left()
-                        
-                        # move original index
-                        if self.compare_item() != None:
-                            self.move_left()
-                        else:
-                            # swap items
-                            self.swap_item() 
-                            # move right
-                            self.move_right()
-
-        
-
-        
-
+            
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
     # with `python robot_sort.py`
 
-    l = [8, 2, 4, 1, 3, 6, 7]
-    # l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60, 65, 21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1, 45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
+    # l = [8, 2, 4, 1, 3, 6, 7]
+    l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60, 65, 21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1, 45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
 
     robot = SortingRobot(l)
 
